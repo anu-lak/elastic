@@ -9,7 +9,6 @@ public interface ElasticRepo extends ElasticsearchRepository<Employee, Integer> 
 
     List<Employee> findByDepartment(String department);
 
-
     @Query("{\"match\": {\"designation\": \"account manager\"}}")
     List<Employee> findManagers();
 

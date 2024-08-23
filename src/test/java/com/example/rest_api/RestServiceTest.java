@@ -1,12 +1,10 @@
 package com.example.rest_api;
 
 import com.example.rest_api.Service.RestService;
-import com.example.rest_api.helpers.Helper;
 import com.example.rest_api.model.Employee;
 import com.example.rest_api.repository.EmployeeRepo;
 import com.example.rest_api.response.ApiResponse;
 
-import org.hamcrest.collection.IsEmptyCollection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.InjectMocks;

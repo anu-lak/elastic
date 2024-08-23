@@ -1,6 +1,5 @@
 package com.example.rest_api.Service;
 
-
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,7 +7,6 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -82,7 +80,7 @@ public ResponseEntity<?> postEmployee(Employee employee) {
     //GET
      public Map<String,Object> getEmployee(Integer managerid,Integer yearsOfExperience){
         Map<String,Object> result = new LinkedHashMap<>();
-        result.put("message","successfully fetched");
+        // result.put("message","successfully fetched");
         List<Object> detailList = new ArrayList<>();
         //creating a managerList to find the manager with the given manager id;
             List<Employee> managerList = employeeRepo.findManagers();
@@ -104,8 +102,17 @@ public ResponseEntity<?> postEmployee(Employee employee) {
                     detailList.add(managerEmpMap);
                 }
             }
-        result.put("details", detailList);
-        return result;
+        // result.put("details", detailList);
+        // return result;
+        if(detailList.isEmpty()){
+            result.put("message","No employees who match the conditions");
+            return result;
+        }else{
+            result.put("message","successfully fetched");
+            result.put("details", detailList);
+            return result;
+        }
+       
     }
     //UPDATE
     @Transactional
